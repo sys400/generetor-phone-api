@@ -22,9 +22,8 @@ const scrapWebPage = async (url) => {
 
 app.get("/randomphonenumbers", cors(), async function (req, res) {
   const { phoneNumber } = req;
-  console.log(phoneNumber);
   const resScracp = await scrapWebPage(
-    `https://www.randomphonenumbers.com/us_phone_number/3136009893`
+    `https://www.randomphonenumbers.com/us_phone_number/${phoneNumber}`
   );
   res.send(resScracp);
 });
