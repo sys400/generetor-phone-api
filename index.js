@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = 92;
 
 const scrapWebPage = async (url) => {
   const browser = await puppeter.launch();
@@ -21,7 +21,7 @@ const scrapWebPage = async (url) => {
 };
 
 app.get("/randomphonenumbers", cors(), async function (req, res) {
-  const { phoneNumber } = req;
+  const phoneNumber = req.query.phone;
   const resScracp = await scrapWebPage(
     `https://www.randomphonenumbers.com/us_phone_number/${phoneNumber}`
   );
